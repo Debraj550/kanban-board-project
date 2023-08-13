@@ -110,7 +110,13 @@ const Board = () => {
             {Object.keys(groupedAndSortedTickets).map((group, index) => (
               <div className="col-md mx-4" key={index}>
                 <div className="scroll-column" style={{ overflowX: "auto" }}>
-                  <h5 className="mt-2 mb-2">{group}</h5>
+                  <h5 className="mt-2 mb-2">
+                    {group}{" "}
+                    <span className="ms-2 text-muted h6">
+                      {groupedAndSortedTickets[group].length}
+                    </span>
+                  </h5>
+
                   {groupedAndSortedTickets[group].map((ticket, ticketIndex) => (
                     <CardComp key={ticketIndex} ticket={ticket} />
                   ))}

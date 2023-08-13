@@ -28,10 +28,10 @@ const Navbar = ({ onGroupChange, onSortChange }) => {
 
   return (
     <div>
-      <div className="bg-white w-100 mh-100 py-1">
+      <div className="bg-white w-100 mh-100 py-2">
         <div className="ms-4">
           <Button
-            className="bg-white text-black border border-2 "
+            className="bg-white text-black border border-2 p-1 "
             onClick={toggleDropdown}
           >
             Display
