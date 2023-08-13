@@ -1,19 +1,21 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import "./CardComp.css";
 
 const CardComp = ({ ticket }) => {
   console.log(ticket);
   return (
     <div>
-      <Card style={{ width: "25rem" }}>
+      <Card className="my-2 border rounded" style={{ width: "25rem" }}>
         <Card.Body>
-          <Card.Subtitle className="mb-2 text-black">{ticket.id}</Card.Subtitle>
-          <Card.Subtitle className="mb-2 fw-bold ">
-            {ticket.title}
-          </Card.Subtitle>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+          <Card.Subtitle className="mb-2 text-muted">{ticket.id}</Card.Subtitle>
+          <Card.Subtitle className="mb-2  ">{ticket.title}</Card.Subtitle>
+          <Card.Text
+            className=" border border-1 px-2"
+            style={{ maxWidth: "fit-content" }}
+          >
+            <span className="dot me-2"></span>
+            <span className="text-muted">{ticket.tag[0]}</span>
           </Card.Text>
         </Card.Body>
       </Card>
