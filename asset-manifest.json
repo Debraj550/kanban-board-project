@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Debraj550/kanban-board-project/static/css/main.a03d943e.css",
+    "main.js": "/Debraj550/kanban-board-project/static/js/main.b80c18bc.js",
+    "static/js/787.b50ec1bc.chunk.js": "/Debraj550/kanban-board-project/static/js/787.b50ec1bc.chunk.js",
+    "index.html": "/Debraj550/kanban-board-project/index.html",
+    "main.a03d943e.css.map": "/Debraj550/kanban-board-project/static/css/main.a03d943e.css.map",
+    "main.b80c18bc.js.map": "/Debraj550/kanban-board-project/static/js/main.b80c18bc.js.map",
+    "787.b50ec1bc.chunk.js.map": "/Debraj550/kanban-board-project/static/js/787.b50ec1bc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a03d943e.css",
+    "static/js/main.b80c18bc.js"
+  ]
+}
