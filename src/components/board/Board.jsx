@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import fetchData from "../../service/Api";
 import CardComp from "../cardComp/CardComp";
-import { Card, Button, ButtonGroup } from "react-bootstrap"; // Import Button and ButtonGroup
 import Navbar from "../navbar/Navbar";
 
 const Board = () => {

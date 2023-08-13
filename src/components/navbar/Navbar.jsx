@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Button, Form, Card } from "react-bootstrap";
-import Board from "../board/Board";
 
 const Navbar = ({ onGroupChange, onSortChange }) => {
   const [showDropdown, setShowDropdown] = useState(false);
