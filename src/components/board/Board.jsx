@@ -3,7 +3,6 @@ import fetchData from "../../service/Api";
 import CardComp from "../cardComp/CardComp";
 import { Card, Button, ButtonGroup } from "react-bootstrap"; // Import Button and ButtonGroup
 import Navbar from "../navbar/Navbar";
-import DisplayMenu from "../displaymenu/DisplayMenu";
 
 const Board = () => {
   const [tickets, setTickets] = useState([]);
@@ -58,12 +57,27 @@ const Board = () => {
         return result;
       }, {});
     } else if (groupBy === "priority") {
-      groupedTickets = tickets.reduce((result, ticket) => {
+      // Convert priority to text
+      groupedTickets = groupedTickets.reduce((result, ticket) => {
         const priority = ticket.priority;
-        if (!result[priority]) {
-          result[priority] = [];
+        let priorityText = "";
+
+        if (priority === 0) {
+          priorityText = "No Priority";
+        } else if (priority === 1) {
+          priorityText = "Low";
+        } else if (priority === 2) {
+          priorityText = "Medium";
+        } else if (priority === 3) {
+          priorityText = "High";
+        } else if (priority === 4) {
+          priorityText = "Urgent";
         }
-        result[priority].push(ticket);
+
+        if (!result[priorityText]) {
+          result[priorityText] = [];
+        }
+        result[priorityText].push(ticket);
         return result;
       }, {});
     }
@@ -84,53 +98,28 @@ const Board = () => {
   const groupedAndSortedTickets = groupAndSortTickets();
 
   return (
-    <div className="container">
-      <Navbar />
-      <ButtonGroup className="mb-3">
-        <Button
-          variant={groupBy === "status" ? "primary" : "outline-primary"}
-          onClick={() => handleGroupChange("status")}
-        >
-          By Status
-        </Button>
-        <Button
-          variant={groupBy === "user" ? "primary" : "outline-primary"}
-          onClick={() => handleGroupChange("user")}
-        >
-          By User
-        </Button>
-        <Button
-          variant={groupBy === "priority" ? "primary" : "outline-primary"}
-          onClick={() => handleGroupChange("priority")}
-        >
-          By Priority
-        </Button>
-      </ButtonGroup>
-      <ButtonGroup className="mb-3">
-        <Button
-          variant={sortOption === "priority" ? "primary" : "outline-primary"}
-          onClick={() => handleSortChange("priority")}
-        >
-          Sort by Priority
-        </Button>
-        <Button
-          variant={sortOption === "title" ? "primary" : "outline-primary"}
-          onClick={() => handleSortChange("title")}
-        >
-          Sort by Title
-        </Button>
-      </ButtonGroup>
-
-      {Object.keys(groupedAndSortedTickets).map((group, index) => (
-        <div key={index} className="d-flex">
-          <div>
-            <h5 className="mt-2 mb-2">{group}</h5>
-            {groupedAndSortedTickets[group].map((ticket, index) => (
-              <CardComp key={index} ticket={ticket} />
+    <div>
+      <Navbar
+        className="bg-white"
+        onGroupChange={handleGroupChange}
+        onSortChange={handleSortChange}
+      />
+      <div className="">
+        <div className="scroll-horizontal vh-100" style={{ overflowX: "auto" }}>
+          <div className="d-flex flex-nowrap ">
+            {Object.keys(groupedAndSortedTickets).map((group, index) => (
+              <div className="col-md mx-4" key={index}>
+                <div className="scroll-column" style={{ overflowX: "auto" }}>
+                  <h5 className="mt-2 mb-2">{group}</h5>
+                  {groupedAndSortedTickets[group].map((ticket, ticketIndex) => (
+                    <CardComp key={ticketIndex} ticket={ticket} />
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
-      ))}
+      </div>
     </div>
   );
 };

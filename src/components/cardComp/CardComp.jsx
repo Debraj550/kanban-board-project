@@ -14,8 +14,12 @@ const CardComp = ({ ticket }) => {
             className=" border border-1 px-2"
             style={{ maxWidth: "fit-content" }}
           >
-            <span className="dot me-2"></span>
-            <span className="text-muted">{ticket.tag[0]}</span>
+            {ticket.tag[0] && (
+              <div>
+                <span className="dot me-2"></span>
+                <span className="text-muted">{ticket.tag[0]}</span>
+              </div>
+            )}
           </Card.Text>
         </Card.Body>
       </Card>
