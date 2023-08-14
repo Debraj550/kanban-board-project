@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import fetchData from "../../service/Api";
 import CardComp from "../cardComp/CardComp";
 import Navbar from "../navbar/Navbar";
+import fetchData from "../../service/Api";
 
 const Board = () => {
   const [tickets, setTickets] = useState([]);

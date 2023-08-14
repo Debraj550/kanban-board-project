@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const baseUrl = "https://apimocha.com/quicksell/data";
 
 const fetchData = async () => {
